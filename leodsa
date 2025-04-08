@@ -31,25 +31,30 @@ print(edit_min_dis("intention","execution"))
 
 
 def stemming(s):
-  if s.endswith('ing'):
-    return s[0:-3]
-  if s.endswith('ly') or s.endswith('ed'):
-    return s[0:-2]
-  return s
+    if s.endswith('ing'):
+        return s[0:-3]
+    if s.endswith('ly') or s.endswith('ed'):
+        return s[0:-2]
+    return s
 
 def lemming(s):
-  lemmas = {
-      'programming' : 'program' ,
-      'loving' : 'Love' ,
-      'lovely' : 'Love' ,
-      'kind' : 'kind'
-  }
-  return lemmas.get(s.lower(),s)
+    lemmas = {
+        'programming': 'program',
+        'loving': 'Love',
+        'lovely': 'Love',
+        'kind': 'kind'
+    }
+    return lemmas.get(s.lower(), s)
 
-for word in ['programming','loving','lovely','kind']:
-  print(lemming(word))
-  print(stemming(word))
+words = ['programming', 'loving', 'lovely', 'kind']
 
+print("Lemmatization Results:")
+for word in words:
+    print(f"{word} → {lemming(word)}")
+
+print("\nStemming Results:")
+for word in words:
+    print(f"{word} → {stemming(word)}")
 
 
 ==========================================================================================================================================================================================================
